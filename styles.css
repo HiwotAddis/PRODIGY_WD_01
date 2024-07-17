@@ -1,0 +1,227 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background: #f7f7f7;
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: #f7f7f7;
+}
+
+/* Header and Navbar */
+.header {
+    position: fixed;
+    width: 100%;
+    height: 7%;
+    top: 0;
+    left: 0;
+    background-color: rgba(5, 5, 5, 0.9);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    margin: 0 15px;
+}
+
+.nav-link {
+    padding: 10px;
+    font-size: 16px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: #fff;
+    background-color: #007BFF;
+}
+
+/* Sections */
+.section {
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.section:nth-of-type(odd) {
+    background-color: #f5f2f2;
+}
+
+.section h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fffefe;
+    font-size: 7vh;
+}
+.section h2{
+    text-align: center;
+    margin-bottom: 20px;
+    color: #007BFF;
+}
+/* Home Section */
+.home-section {
+    background: url('assets/homepage.jpg') no-repeat center center/cover;
+    position: relative;
+    color: #fff;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.home-section .overlay {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+/* Product, Project, and Blog List */
+.product-list, .project-list, .blog-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 925px;
+    margin: 0 auto;
+}
+
+.product-item, .project-item, .blog-post {
+    flex: 1 1 calc(33.333% - 40px);
+    box-sizing: border-box;
+    margin: 10px;
+    border: 1px solid #f0eded;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 10 10px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border-radius: 15px;
+}
+
+.product-item:hover, .project-item:hover, .blog-post:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Product, Project, and Blog Images */
+.product-image, .project-image, .blog-image {
+    width: 100vh;
+    max-width: 400px;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Contact Form */
+.contact-form {
+    background: #c0bebe;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #f9f9f9;
+    transition: border 0.3s ease;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border: 1px solid #007BFF;
+}
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Additional Styles for Fixed Navbar */
+.scrolled .header {
+    background-color: #007BFF;
+    transition: background-color 0.3s ease;
+}
+
+.scrolled .nav-link {
+    color: #fff;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .nav-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-item {
+        margin: 5px 0;
+    }
+
+    .product-item, .project-item, .blog-post {
+        flex: 1 1 calc(50% - 40px);
+    }
+}
+
+@media (max-width: 480px) {
+    .product-item, .project-item, .blog-post {
+        flex: 1 1 100%;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-item {
+        margin: 5px 0;
+    }
+
+    .form-group {
+        width: 100%;
+    }
+}
