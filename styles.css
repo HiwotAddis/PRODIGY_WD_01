@@ -1,18 +1,16 @@
-/* General Styles */
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     background: #f7f7f7;
     scroll-behavior: smooth;
+    padding: 0;
+    box-sizing: border-box;
 }
-
 a {
     text-decoration: none;
     color: #f7f7f7;
 }
-
-/* Header and Navbar */
 .header {
     position: fixed;
     width: 100%;
@@ -23,37 +21,32 @@ a {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     z-index: 1000;
 }
-
 .navbar {
     display: flex;
-    justify-content: center;
-    padding: 10px 0;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
 }
-
 .nav-list {
     list-style: none;
     display: flex;
     margin: 0;
     padding: 0;
 }
-
 .nav-item {
     margin: 0 15px;
 }
-
 .nav-link {
     padding: 10px;
     font-size: 16px;
     transition: color 0.3s ease, background-color 0.3s ease;
     border-radius: 5px;
 }
-
 .nav-link:hover, .nav-link.active {
     color: #fff;
     background-color: #007BFF;
 }
-
-/* Sections */
 .section {
     min-height: 100vh;
     padding: 20px;
@@ -64,11 +57,9 @@ a {
     background: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-
 .section:nth-of-type(odd) {
     background-color: #f5f2f2;
 }
-
 .section h1 {
     text-align: center;
     margin-bottom: 20px;
@@ -79,30 +70,33 @@ a {
     text-align: center;
     margin-bottom: 20px;
     color: #007BFF;
+    font-size: 5vh;
 }
-/* Home Section */
 .home-section {
     background: url('assets/homepage.jpg') no-repeat center center/cover;
     position: relative;
     color: #fff;
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
 }
-
 .home-section .overlay {
     background: rgba(0, 0, 0, 0.5);
     padding: 30px;
     border-radius: 10px;
 }
-
-/* Product, Project, and Blog List */
-.product-list, .project-list, .blog-list {
+.product-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     max-width: 925px;
     margin: 0 auto;
 }
-
+.blog-list,.project-list{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    justify-content: center;
+    margin: 0 auto;
+}
 .product-item, .project-item, .blog-post {
     flex: 1 1 calc(33.333% - 40px);
     box-sizing: border-box;
@@ -110,45 +104,41 @@ a {
     border: 1px solid #f0eded;
     padding: 20px;
     background-color: #fff;
-    box-shadow: 10 10px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     border-radius: 15px;
 }
-
 .product-item:hover, .project-item:hover, .blog-post:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
-
-/* Product, Project, and Blog Images */
-.product-image, .project-image, .blog-image {
+.product-image{
     width: 100vh;
     max-width: 400px;
     height: auto;
     border-radius: 5px;
     margin-bottom: 10px;
 }
-
-/* Contact Form */
+.project-image, .blog-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;   
+}
 .contact-form {
-    background: #c0bebe;
-    padding: 50px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
     max-width: 600px;
     width: 100%;
-    margin: 0 auto;
 }
-
 .form-group {
     margin-bottom: 15px;
     width: 100%;
 }
-
 .form-group label {
     display: block;
     margin-bottom: 5px;
 }
-
 .form-group input, .form-group textarea {
     width: 100%;
     padding: 15px;
@@ -158,11 +148,9 @@ a {
     background: #f9f9f9;
     transition: border 0.3s ease;
 }
-
 .form-group input:focus, .form-group textarea:focus {
     border: 1px solid #007BFF;
 }
-
 button[type="submit"] {
     display: block;
     width: 100%;
@@ -175,27 +163,28 @@ button[type="submit"] {
     transition: background-color 0.3s ease;
     font-size: 16px;
 }
-
 button[type="submit"]:hover {
     background-color: #0056b3;
 }
-
-/* Additional Styles for Fixed Navbar */
 .scrolled .header {
     background-color: #007BFF;
     transition: background-color 0.3s ease;
 }
-
 .scrolled .nav-link {
     color: #fff;
 }
-
-
-/* Responsive Styles */
+.toggle-bar {
+    position: fixed;
+    top: 50px;
+    right: 20px;
+    padding: 10px;
+    border-radius: 5px;
+}
 @media (max-width: 768px) {
     .nav-list {
         flex-direction: column;
         align-items: center;
+        display: none;
     }
 
     .nav-item {
@@ -205,22 +194,38 @@ button[type="submit"]:hover {
     .product-item, .project-item, .blog-post {
         flex: 1 1 calc(50% - 40px);
     }
-}
 
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+        position: absolute;
+        right: 20px;
+        top: 10px;
+    }
+    .nav-list.active {
+        display: flex;
+    }
+    .menu-toggle .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+        background-color: #fff;
+    }
+}
 @media (max-width: 480px) {
-    .product-item, .project-item, .blog-post {
+    .product-item,.project-item,.blog-post{
         flex: 1 1 100%;
     }
-
     .nav-list {
         flex-direction: column;
         align-items: center;
     }
-
     .nav-item {
         margin: 5px 0;
     }
-
     .form-group {
         width: 100%;
     }
